@@ -1,0 +1,29 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { SessionContextProvider } from "@/components/SessionContextProvider";
+import { Toaster } from "react-hot-toast";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "ProOmo - Influencer Platform",
+  description: "Connect creators with brands for paid promotions.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <SessionContextProvider>
+          {children}
+          <Toaster />
+        </SessionContextProvider>
+      </body>
+    </html>
+  );
+}
