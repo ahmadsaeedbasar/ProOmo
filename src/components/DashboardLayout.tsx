@@ -9,7 +9,8 @@ import { supabase } from '../integrations/supabase/client';
 import toast from 'react-hot-toast';
 import ProfileSetupPage from '../pages/ProfileSetupPage';
 import DashboardOverview from '../pages/DashboardOverview';
-import OffersPage from '../pages/OffersPage'; // Import the new OffersPage
+import OffersPage from '../pages/OffersPage';
+import OfferFormPage from '../pages/OfferFormPage'; // Import the new OfferFormPage
 
 const Sidebar: React.FC = () => {
   const { profile } = useAuth();
@@ -74,8 +75,14 @@ const DashboardLayout: React.FC = () => {
           <Routes>
             <Route index element={<DashboardOverview />} />
             <Route path="profile" element={<ProfileSetupPage />} />
-            {profile?.niche && <Route path="offers" element={<OffersPage />} />} {/* Add OffersPage route */}
-            {/* Future routes: /dashboard/offers/new, /dashboard/offers/edit/:id, /dashboard/requests */}
+            {profile?.niche && (
+              <>
+                <Route path="offers" element={<OffersPage />} />
+                <Route path="offers/new" element={<OfferFormPage />} /> {/* New offer creation route */}
+                <Route path="offers/edit/:id" element={<OfferFormPage />} /> {/* Edit offer route */}
+              </>
+            )}
+            {/* Future routes: /dashboard/requests */}
             <Route path="*" element={<div className="text-center p-10">404 - Dashboard Page Not Found</div>} />
           </Routes>
         ) : (
