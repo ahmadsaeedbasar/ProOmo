@@ -1,0 +1,23 @@
+{
+  "extends": "./frontend/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./frontend/src/*"]
+    }
+  },
+  "include": [
+    "frontend/src/**/*.ts",
+    "frontend/src/**/*.tsx",
+    "frontend/src/**/*.js",
+    "frontend/src/**/*.jsx",
+    "shared/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "backend",
+    "frontend/node_modules",
+    "frontend/.next",
+    "frontend/out"
+  ]
+}
