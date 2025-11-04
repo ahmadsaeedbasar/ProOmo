@@ -45,7 +45,7 @@ export default function ForgotPasswordPage() {
           }}
           theme="light"
           redirectTo={`${window.location.origin}/auth/callback`}
-          view="forgot_password"
+          view="forgotten_password"
         />
         <p className="mt-6 text-center text-sm text-gray-600">
           Remembered your password?{" "}

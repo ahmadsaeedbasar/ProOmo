@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ProOmo Application - Quick Access</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 50px; background: #f5f5f5; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .url { background: #e8f5e8; padding: 15px; border-radius: 5px; font-size: 18px; margin: 10px 0; }
+        .error { background: #ffe8e8; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .success { background: #e8f5e8; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        a { color: #0066cc; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 ProOmo Application</h1>
+        
+        <h2>✅ Current Status: Running</h2>
+        <div class="success">
+            <strong>All services are operational:</strong><br>
+            • Frontend: Port 3000 ✓<br>
+            • Backend: Port 8000 ✓<br>
+            • Database: Healthy ✓<br>
+            • Tailwind CSS: Working ✓
+        </div>
+
+        <h2>🌐 Main Application</h2>
+        <div class="url">
+            <a href="http://localhost:3000" target="_blank">http://localhost:3000</a>
+        </div>
+
+        <h2>🔗 API Services</h2>
+        <div class="url">
+            <a href="http://localhost:8000/api/" target="_blank">http://localhost:8000/api/</a> (API endpoints)
+        </div>
+        <div class="url">
+            <a href="http://localhost:8000/admin/" target="_blank">http://localhost:8000/admin/</a> (Admin panel)
+        </div>
+
+        <h2>⚠️ If You Get SSL Errors:</h2>
+        <div class="error">
+            <strong>Use HTTP ONLY (not HTTPS):</strong><br>
+            • Clear browser cache<br>
+            • Delete SSL certificates for localhost<br>
+            • Restart browser<br>
+            • Try incognito/private mode
+        </div>
+    </div>
+</body>
+</html>

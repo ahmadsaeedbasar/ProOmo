@@ -21,9 +21,9 @@ export const SessionContextProvider = ({ children }: { children: ReactNode }) =>
   const router = useRouter();
   const pathname = usePathname();
 
-  const publicPaths = ["/", "/auth/login", "/auth/register", "/auth/forgot-password", "/creators"]; // Add other public paths here
-
   useEffect(() => {
+    const publicPaths = ["/", "/auth/login", "/auth/register", "/auth/forgot-password", "/creators"];
+    
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, currentSession) => {
         if (currentSession) {
@@ -31,7 +31,7 @@ export const SessionContextProvider = ({ children }: { children: ReactNode }) =>
           if (event === "SIGNED_IN" || event === "INITIAL_SESSION") {
             // Redirect authenticated users away from auth pages
             if (pathname.startsWith("/auth")) {
-              router.push("/dashboard/creator/profile"); // Default dashboard for now
+              router.push("/dashboard/profile"); // Default dashboard for now
             }
           }
         } else {
@@ -51,7 +51,7 @@ export const SessionContextProvider = ({ children }: { children: ReactNode }) =>
       setSession(initialSession);
       setIsLoading(false);
       if (initialSession && pathname.startsWith("/auth")) {
-        router.push("/dashboard/creator/profile"); // Redirect if already logged in and on auth page
+        router.push("/dashboard/profile"); // Redirect if already logged in and on auth page
       } else if (!initialSession && !publicPaths.some(path => pathname.startsWith(path))) {
         router.push("/auth/login");
       }

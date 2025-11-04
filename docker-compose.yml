@@ -42,15 +42,17 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      target: dev
     command: npm run dev
     volumes:
       - ./frontend:/app
-      - /app/node_modules # Exclude node_modules from host mount
+      - /app/node_modules
     ports:
       - "3000:3000"
     environment:
       NEXT_PUBLIC_SUPABASE_URL: "https://ssezibwijzevjfikyzzm.supabase.co"
       NEXT_PUBLIC_SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNzZXppYndijanpldmpmaWt5enptIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIxNTM1MTIsImV4cCI6MjA3NzcyOTUxMn0.qEOFYxtWpum4ChT_pOLsSLW0Xc-61oPZuK2CShgyPR0"
+      NODE_ENV: development
     depends_on:
       - backend
 

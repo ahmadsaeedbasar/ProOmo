@@ -1,0 +1,24 @@
+PROOMO APPLICATION - CORRECT ACCESS URLS
+==========================================
+
+🌐 MAIN APPLICATION:
+http://localhost:3000
+(Use this URL - it's your web interface)
+
+🔗 BACKEND SERVICES:
+http://localhost:8000/api/     (API endpoints)
+http://localhost:8000/admin/   (Admin panel)
+
+📱 ROOT PAGES:
+http://localhost:8000/        (Redirects to frontend)
+
+⚠️  IMPORTANT:
+- ONLY use HTTP (not HTTPS)
+- Clear browser cache if still getting SSL errors
+- All services run on HTTP by default
+
+STATUS CHECK:
+✅ Frontend: Running on port 3000
+✅ Backend: Running on port 8000  
+✅ Database: Running and healthy
+✅ Tailwind CSS: Working correctly

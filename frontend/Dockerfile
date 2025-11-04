@@ -4,18 +4,23 @@ FROM node:20-alpine AS base
 # Install dependencies
 FROM base AS deps
 WORKDIR /app
-COPY frontend/package.json frontend/yarn.lock* frontend/pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f pnpm-lock.yaml ]; then pnpm fetch --prod; \
-  else npm ci; \
-  fi
+COPY package.json package-lock.json* pnpm-lock.yaml* ./
+RUN npm ci --only=production
 
-# Rebuild the source code only when needed
+# Development stage
+FROM base AS dev
+WORKDIR /app
+COPY package.json package-lock.json* pnpm-lock.yaml* ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "run", "dev"]
+
+# Build stage
 FROM base AS builder
 WORKDIR /app
-COPY frontend/ .
 COPY --from=deps /app/node_modules ./node_modules
+COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm run build
 

@@ -1,9 +1,0 @@
-{
-	"dependencies": {
-		"@supabase/supabase-js": "^2.78.0",
-		"react-hot-toast": "^2.6.0"
-	},
-	"devDependencies": {
-		"typescript": "^5"
-	}
-}
