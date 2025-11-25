@@ -1,4 +1,4 @@
-// File: c:\Users\wwwah\OneDrive\문서\GitHub\ProOmo\frontend\src\app\auth\register\page.tsx
+// File: /app/src/app/auth/register/page.tsx
 import * as entry from '../../../../../src/app/auth/register/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
